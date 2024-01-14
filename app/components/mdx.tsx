@@ -90,7 +90,6 @@ let components = {
 
 export function CustomMDX(props: any) {
   return (
-    // @ts-expect-error: RSC
     <MDXRemote
       {...props}
       components={{ ...components, ...(props.components || {}) }}
