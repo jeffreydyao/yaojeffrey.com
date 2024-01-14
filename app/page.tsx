@@ -1,3 +1,7 @@
+import { Dijgtal as DijgtalLogo } from "@/components/logos/dijgtal";
+import { Everlab as EverlabLogo } from "@/components/logos/everlab";
+import { Relevance as RelevanceLogo } from "@/components/logos/relevance";
+
 /* eslint-disable react/no-unescaped-entities */
 export default function Home() {
   return (
@@ -7,9 +11,9 @@ export default function Home() {
           <h1 className="font-serif font-medium">Jeffrey Yao</h1>
 
           <p className="text-[14px]">
-            Hi! I'm a software engineer. I currently work as a founding engineer
-            at Everlab, building preventative healthcare to help Australians
-            live longer, healthier and happier lives.
+            Hi! I'm a software engineer based in Sydney. I currently work as a
+            founding engineer at Everlab, building preventative healthcare to
+            help Australians live longer, healthier and happier lives.
             <br></br>
             <br></br>
             When I'm not finishing my CS degree at UNSW, I'm gymming or training
@@ -26,21 +30,24 @@ export default function Home() {
         <section className="text-[14px] space-y-2">
           <h1 className="font-serif font-medium">Work</h1>
           <ul className="space-y-1">
-            <li>
+            <li className="flex items-center gap-2">
+              <EverlabLogo className="w-4" />
               <p>
                 Founding Engineer, Everlab{" "}
                 <span className="text-gray-600">(2024 - Now)</span>
               </p>
             </li>
 
-            <li>
+            <li className="flex items-center gap-2">
+              <RelevanceLogo className="w-4 overflow-visible" />
               <p>
                 Software Engineer, Relevance AI{" "}
                 <span className="text-gray-600">(2022 - 2023)</span>
               </p>
             </li>
 
-            <li>
+            <li className="flex items-center gap-2">
+              <DijgtalLogo className="w-4" />
               <p>
                 Web Engineer, DIJGTAL{" "}
                 <span className="text-gray-600">(2022)</span>
