@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["New York"],
-        mono: ["SF Mono"],
+        serif: ["New York", ...defaultTheme.fontFamily.serif],
+        mono: ["SF Mono", ...defaultTheme.fontFamily.mono],
       },
       typography: {
         quoteless: {
