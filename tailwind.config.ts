@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -8,11 +9,24 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      serif: ["New York", ...defaultTheme.fontFamily.sans],
-      mono: ["SF Mono", ...defaultTheme.fontFamily.mono],
+    extend: {
+      fontFamily: {
+        serif: ["New York", ...defaultTheme.fontFamily.sans],
+        mono: ["SF Mono", ...defaultTheme.fontFamily.mono],
+      },
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  plugins: [typography],
 };
 export default config;
