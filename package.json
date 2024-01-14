@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "dayjs": "^1.11.10",
     "next": "canary",
     "next-mdx-remote": "^4.4.1",
