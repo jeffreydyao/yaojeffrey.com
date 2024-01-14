@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import fs from "fs";
 import path from "path";
 
@@ -42,8 +43,9 @@ function readMDXFile(path: string) {
 
 export function getBlogPost(_path: string) {
   let filePath = path.join(CONTENT_DIR, _path);
+  let slug = path.basename(_path, path.extname(_path));
   let { metadata, content } = readMDXFile(filePath);
-  return { metadata, content };
+  return { metadata, content, slug };
 }
 
 function getMDXData(dir: string) {
@@ -51,7 +53,17 @@ function getMDXData(dir: string) {
   return mdxFiles.map((file) => getBlogPost(file));
 }
 
+/** Sorted from latest to earliest */
 export function getBlogPosts() {
   let posts = getMDXData(CONTENT_DIR);
-  return posts;
+  return posts.sort((a, b) => {
+    if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+      return -1;
+    }
+    return 1;
+  });
+}
+
+export function parseDateToString(date: string) {
+  return dayjs(date).format("MMM D, YYYY");
 }

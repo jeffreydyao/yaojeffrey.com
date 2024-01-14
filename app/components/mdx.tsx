@@ -4,29 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 
-function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
-  let rows = data.rows.map((row, index) => (
-    <tr key={index}>
-      {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-
-  return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-}
-
-function CustomLink(props) {
+function CustomLink(props: any) {
   let href = props.href;
 
   if (href.startsWith("/")) {
@@ -44,11 +22,12 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+function RoundedImage(props: React.ComponentProps<typeof Image>) {
+  // @ts-expect-error
+  return <Image alt={props?.alt ?? ""} className="rounded-lg" {...props} />;
 }
 
-function Callout(props) {
+function Callout(props: { emoji: string; children: React.ReactNode }) {
   return (
     <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
       <div className="flex items-center w-4 mr-4">{props.emoji}</div>
@@ -57,14 +36,17 @@ function Callout(props) {
   );
 }
 
-function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
+function Code({
+  children,
+  ...props
+}: { children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) {
+  let codeHTML = highlight(children as string);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
-function slugify(str) {
+function slugify(str: React.ReactNode) {
   return str
-    .toString()
+    ?.toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
     .replace(/\s+/g, "-") // Replace spaces with -
@@ -73,8 +55,8 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
-  return ({ children }) => {
+function createHeading(level: number) {
+  const Component = ({ children }: { children: React.ReactNode }) => {
     let slug = slugify(children);
     return React.createElement(
       `h${level}`,
@@ -89,6 +71,8 @@ function createHeading(level) {
       children
     );
   };
+  Component.displayName = `Heading${level}`;
+  return Component;
 }
 
 let components = {
@@ -102,11 +86,11 @@ let components = {
   a: CustomLink,
   Callout,
   code: Code,
-  Table,
 };
 
-export function CustomMDX(props) {
+export function CustomMDX(props: any) {
   return (
+    // @ts-expect-error: RSC
     <MDXRemote
       {...props}
       components={{ ...components, ...(props.components || {}) }}

@@ -1,11 +1,13 @@
 import { Dijgtal as DijgtalLogo } from "@/app/components/logos/dijgtal";
 import { Everlab as EverlabLogo } from "@/app/components/logos/everlab";
 import { Relevance as RelevanceLogo } from "@/app/components/logos/relevance";
+import { getBlogPosts } from "./blog/utils";
+import { PostList } from "./components/post-list";
 
 /* eslint-disable react/no-unescaped-entities */
 export default function Home() {
   return (
-    <div className="flex flex-col w-screen max-w-2xl py-8 gap-4">
+    <section className="space-y-4">
       <header className="space-y-2 pb-4 border-b border-black">
         <h1 className="font-serif font-medium">Jeffrey Yao</h1>
 
@@ -57,7 +59,7 @@ export default function Home() {
       <section className="text-[14px] space-y-2">
         <h1 className="font-serif font-medium">Projects</h1>
         <ul className="space-y-2">
-          <li className="flex flex-col gap-1">
+          <li className="flex flex-col gap-1 cursor-progress">
             <div className="flex items-center gap-1.5">
               <p>Connect 4 Hoops</p>
 
@@ -71,7 +73,7 @@ export default function Home() {
             </span>
           </li>
 
-          <li className="flex flex-col gap-1">
+          <li className="flex flex-col gap-1 cursor-context-menu">
             <div className="flex items-center gap-1.5">
               <p>Stacks</p>
 
@@ -89,35 +91,32 @@ export default function Home() {
 
       <section className="text-[14px] space-y-2">
         <h1 className="font-serif font-medium">Writing</h1>
-        <ul className="space-y-1">
-          <li>
-            <p>22 Lessons At 22</p>
-          </li>
-
-          <li>
-            <p>We Have Connect 4 Hoops At Home</p>
-          </li>
-
-          <li>
-            <p>2022 In Review</p>
-          </li>
-        </ul>
+        <PostList />
       </section>
 
       <section className="text-[14px] space-y-2">
         <h1 className="font-serif font-medium">Links</h1>
         <ul className="space-y-1">
           <li>
-            <p>GitHub</p>
+            <a href="https://twitter.com/jeffdyao" target="_blank">
+              Twitter
+            </a>
           </li>
           <li>
-            <p>Twitter</p>
+            <a href="https://github.com/jeffreydyao" target="_blank">
+              GitHub
+            </a>
           </li>
           <li>
-            <p>hello@jyao.me</p>
+            <a href="https://www.linkedin.com/in/jeffreydyao/" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hi@yaojeffrey.com">hi@yaojeffrey.com</a>
           </li>
         </ul>
       </section>
-    </div>
+    </section>
   );
 }

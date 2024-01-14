@@ -19,7 +19,6 @@
 
 .prose .anchor {
   @apply absolute invisible no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -29,6 +28,10 @@
 
 .anchor:hover {
   @apply visible;
+}
+
+a {
+  @apply hover:underline underline-offset-2;
 }
 
 .prose a {
@@ -55,11 +58,10 @@
 .prose pre code {
   @apply p-0;
   border: initial;
-  line-height: 1.5;
 }
 
 .prose code span {
-  @apply font-medium;
+  @apply font-medium text-xs;
 }
 
 .prose img {
@@ -67,13 +69,18 @@
   @apply m-0;
 }
 
-.prose h2,
-h3,
-h4 {
-  @apply font-medium tracking-tighter !important;
+.prose ul {
+  @apply mt-2 mb-4 leading-relaxed;
 }
 
-.prose strong {
+.prose h1,
+h2,
+h3,
+h4 {
+  @apply font-serif font-medium !important;
+}
+
+.pro .prose strong {
   @apply font-medium;
 }
 
@@ -98,11 +105,6 @@ input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: 500;
 }
 
 table {
