@@ -84,7 +84,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </p>
       </header>
 
-      <article className="prose prose-sm prose-quoteless prose-neutral max-w-none dark:prose-invert">
+      <article className="prose prose-sm prose-quoteless prose-neutral max-w-none">
         <CustomMDX source={post.content} />
       </article>
     </section>
