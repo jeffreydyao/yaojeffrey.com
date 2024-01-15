@@ -59,9 +59,9 @@ export default function Home() {
       <section className="text-[14px] space-y-2">
         <h1 className="font-serif font-medium">Projects</h1>
         <ul className="space-y-2">
-          <li className="flex flex-col gap-1 cursor-progress">
+          <li className="flex flex-col gap-1 cursor-context-menu">
             <div className="flex items-center gap-1.5">
-              <p>Connect 4 Hoops</p>
+              <p>Stacks</p>
 
               <aside className="rounded-full flex items-center justify-center leading-none text-xs px-1 py-[1px] border-gray-400 text-gray-800 border font-medium ">
                 WIP
@@ -69,13 +69,13 @@ export default function Home() {
             </div>
 
             <span className="text-xs text-gray-500">
-              The arcade game, but at home
+              Your financial picture at a glance. iOS and macOS
             </span>
           </li>
 
-          <li className="flex flex-col gap-1 cursor-context-menu">
+          <li className="flex flex-col gap-1 cursor-progress">
             <div className="flex items-center gap-1.5">
-              <p>Stacks</p>
+              <p>Connect 4 Hoops</p>
 
               <aside className="rounded-full flex items-center justify-center leading-none text-xs px-1 py-[1px] border-gray-400 text-gray-800 border font-medium ">
                 Up next
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
 
             <span className="text-xs text-gray-500">
-              Your financial picture at a glance. iOS and macOS
+              The arcade game, but at home
             </span>
           </li>
         </ul>
