@@ -13,8 +13,9 @@ export default function Home() {
 
         <p className="text-[14px]">
           Hi! I'm a software engineer based in Sydney. I currently work as a
-          founding engineer at Everlab, building preventative healthcare to help
-          Australians live longer, healthier and happier lives.
+          founding engineer at Everlab, building the future of preventative
+          healthcare to help Australians live longer, healthier and happier
+          lives.
           <br></br>
           <br></br>
           When I'm not finishing my CS degree at UNSW, I'm gymming or training
